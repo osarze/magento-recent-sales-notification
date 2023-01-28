@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @var \Mageplaza\HelloWorld\Block\Display $block
+ */
+$orderCollection = $block->getRecentProductSalesCollection();
+ $jsonEncode = $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($orderCollection);
+?>
+<section class="custom-social-proof" data-mage-init='{ "recentSalesNotification": <?php /* @noEscape */ echo $jsonEncode; ?>}'>
+    <div class="custom-notification">
+        <div class="custom-notification-container">
+            <div class="custom-notification-image-wrapper">
+                <img src="headset.jpg">
+            </div>
+            <div class="custom-notification-content-wrapper">
+                <p class="custom-notification-content">
+                :person in :location bought <small>:product</small>
+                    <br>&#8358; :price, :time
+                </p>
+            </div>
+        </div>
+        <div class="custom-close"></div>
+    </div>
+</section>
+<?php if ($block->showRecentSalesWidget()) { ?>
+    <section class="custom-social-proof">
+        <div class="custom-notification">
+        <div class="custom-notification-container">
+            <div class="custom-notification-image-wrapper">
+            <img src="headset.jpg">
+            </div>
+            <div class="custom-notification-content-wrapper">
+            <p class="custom-notification-content">
+            :person in :location bought <small>:product</small>
+                <br>&#8358; :price, :time
+            </p>
+            </div>
+        </div>
+        <div class="custom-close"></div>
+        </div>
+    </section>
+<?php }?>
